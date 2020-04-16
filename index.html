@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <style> /* set the CSS */
+        .line{stroke:steelblue;
+        stroke-width: 4px;
+        }
+        .bar { fill: steelblue;
+               stroke:black;
+               stroke-width: 2px;; }
+        
+        .arc {stroke: white;
+              stroke-width: 2px;
+        }
+
+        path.slice{
+	    stroke-width:2px;
+        }
+
+        polyline{
+	        opacity: .3;
+	        stroke: black;
+	        stroke-width: 2px;
+	        fill: none;
+        }
+        .domain{
+            stroke:black;
+            stroke-width: 3px;
+        }
+        .axis { font: 14px sans-serif; }
+        .image_lineplot{
+            display:flex;
+        }
+        .image_bar{
+            display:flex;
+        }
+        .image_pie{
+            display:flex;
+        }
+        .p-graphs{
+            font-size:"150%";
+        }
+        </style>
+<body>
+<section>
+    <h3> The number of patients admitted to the hospital</h3>
+        <p class="p-graphs" style="font-size:14px">Here, we show the number of patients that are admitted to the hospital over the current period</p>
+        <svg id="testSvg" width=500 height=500></svg>
+    <br />
+    <br />
+        <p class="p-graphs" style="font-size:14px">Here, we have grouped the number of cases by province. This plot shows how many active cases there are in each province.</p>
+        <svg id="testhistogram" width=500 height=700></svg>
+    <br />
+    <br />
+        <h3> Daily cases</h3>
+        <p class="p-graphs" style="font-size:14px">Here, we report the daily cases (hospitalized, deceased and infected) as reported by the RIVM.</p>
+        <svg id="testSvgPie" width=500 height=500></svg>
+</section>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="d3.legend.js"></script>
+<script src="createBarPlot.js"></script>
+<script src="createPieChart.js"></script>
+<script src="histogramPlot.js"></script>
+</body>
+</html>
