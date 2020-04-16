@@ -1,7 +1,7 @@
 $(document).ready(function(){
     
     // basic settings
-    var width=500;
+    var width=600;
     var height=500;
     var svg = d3.select("#testSvgPie");
     var radius=80;
@@ -42,25 +42,32 @@ $(document).ready(function(){
             .attr("data-legend",function(d) { return d.categories})
             .style("fill", function(d) { return color(d.data.categories); });
         
-        var legend = svg.selectAll('.legend')
-            .data(color)
-            .enter()
-            .append('g')
-            .attr('class', 'legend');
-
-        legend.append('rect')
-              .attr('width', 40)
-              .attr('height', 40)
-              attr("transform", "translate(50,10)")
-              .style('fill', function(d){ return color(d.data.categories);})
-              .style('stroke', function(d){ return color(d.data.categories);})
-
-              legend.append('text')
-              .attr('x',100)
-              .attr('y', 100)
-              attr("transform", "translate(50,10)")
-              .text(function(d) { return d.categories; });
-
+        var legend = svg.append("g")
+	    .attr("class", "legend")
+	    .attr("height", 100)
+	    .attr("width", 100)
+        .attr('transform', 'translate(-20,50)')    
+      
+        legend.selectAll('arc')
+        .data(pie(data))
+        .enter()
+        .append("rect")
+        .attr("x", 120)
+        .attr("y", function(d, i){ return i *  20 -60;})
+        .attr("width", 10)
+        .attr("height", 10)
+        .style("fill", function(d) { 
+            return color(d.data.categories);
+        })
+        legend.selectAll('text')
+        .data(pie(data))
+        .enter()
+        .append("text")
+        .attr("x", 140)
+        .attr("y", function(d, i){ return i *  20 + -51;})
+        .text(function(d) {
+          return d.data.categories
+        });
         
          })
 
