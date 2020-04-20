@@ -52,6 +52,12 @@ $(document).ready(function(){
           .attr("dy", ".15em")
           .attr("transform", "rotate(-65)");
     
+          svg.append("svg:text")
+          .attr("class", "title")
+          .attr("x", 60)
+          .attr("y", 60)
+          .text("Daily new cases");
+
     })
 
 
